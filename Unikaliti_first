@@ -1,0 +1,26 @@
+def get_stickers_comparison(collection_1, collection_2):
+    stickers_from_stas = set(collection_1)
+    stickers_from_anton = set(collection_2)
+    return (
+        sorted(stickers_from_stas - stickers_from_anton),
+        sorted(stickers_from_anton - stickers_from_stas),
+        sorted(stickers_from_stas & stickers_from_anton)
+    )
+
+
+# Списки стикеров:
+stas_collection = [
+    'Тим Бернерс-Ли', 'Линус Торвальдс', 'Ада Лавлейс', 'Линус Торвальдс',
+    'Маргарет Гамильтон', 'Бьярн Страуструп'
+]
+anton_collection = [
+    'Тим Бернерс-Ли', 'Гвидо ван Россум', 'Линус Торвальдс',
+    'Бьярн Страуструп', 'Бьярн Страуструп', 'Кен Томпсон', 'Деннис Ричи'
+]
+
+# Вызываем функцию и распаковываем полученный кортеж в три переменные:
+stas_stickers, anton_stickers, common_stickers = get_stickers_comparison(stas_collection, anton_collection)
+# Печатаем результаты:
+print('Стикеры, которые есть только у Стаса:', stas_stickers)
+print('Стикеры, которые есть только у Антона:', anton_stickers)
+print('Стикеры, которые есть и у Стаса, и у Антона:', common_stickers)
